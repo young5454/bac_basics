@@ -2,7 +2,7 @@
 import argparse
 import os
 
-# Open the input FASTA file and output file
+
 def header_change(input, output):
     count = 0
     with open(input, "r") as infile, open(output, "w") as outfile:
@@ -23,12 +23,13 @@ def header_change(input, output):
                 outfile.write(line)
     return count
 
+
 def main():    
     # Argument parser
     parser = argparse.ArgumentParser(description='Change the header of PGAP CDS protein FASTA to Locus Tags')
-    parser.add_argument('--i', required=True, help='Path to annotation TSV file')
+    parser.add_argument('--i', required=True, help='Path to raw FASTA file')
     parser.add_argument('--save_path', required=False, default='./', help='Path to save new FASTA file')
-    parser.add_argument('--save_name', required=False, default='lt.fasta', help='Name of new FASTA file' ) 
+    parser.add_argument('--save_name', required=False, default='lt.fasta', help='Name of new FASTA file') 
     args = parser.parse_args()
 
     # Define argument variables
